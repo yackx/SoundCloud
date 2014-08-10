@@ -22,10 +22,10 @@ def download_from_id(client_id, track_id, dir, override=False):
 
 def download(client, track, dir, override=False):
     """Download a track using the given SC client"""
-    print track.title
+    title = fix_title(track.title, track.user['username'])
+    print '"%s"' % title
     if not dir: dir = 'mp3'
     utils.create_dir(dir)
-    title = fix_title(track.title, track.user['username'])
     file_name = utils.build_file_name(dir, title)
 
     if not override and os.path.exists(file_name):
