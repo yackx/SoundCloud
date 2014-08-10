@@ -36,3 +36,13 @@ def download_from_url(client_id, url, base_dir, override=False):
     # Stats
     print "Playlist downloaded to %s" % playlist_title
     print "Downloaded: %d, Skipped: %d, Errors: %d" % (downloaded, skipped, errors)
+
+
+def download_all(client_id, user_url, base_dir, override=False):
+    """Download all playlist from the given user URL"""
+    client = soundcloud.Client(client_id=client_id)
+    user = client.get('/resolve', url=user_url)
+    playlists = client.get('/users/%d/playlists' % user.id)
+    for playlist in playlists:
+        print 'Playlist: "%s"' % playlist.title
+        download_from_url(client_id, playlist.permalink_url, base_dir, override)

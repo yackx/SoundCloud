@@ -17,9 +17,10 @@ pip install soundcloud
 import argparse, requests, urllib2
 import track, playlist
 
-parser = argparse.ArgumentParser(description='Download a SoundCloud track or a complete playlist')
+parser = argparse.ArgumentParser(description='Download a SoundCloud tracks and playlists')
 parser.add_argument('--track', '-t', help="Track URL")
 parser.add_argument('--playlist', '-p', help="Public or shared playlist URL")
+parser.add_argument('--all', '-a', help="User URL. Download all tracks for all public playlists")
 parser.add_argument('--id', '-i', help='Client ID', required=True)
 parser.add_argument(
         '--override', '-d', action='store_true',
@@ -44,6 +45,16 @@ elif args.playlist != None:
     except urllib2.HTTPError, err:
         if err.code == 404:
             print 'Error: Playlist not found. Make sure it is public or use its share URL'
+            exit(1)
+        else:
+            raise
+
+elif args.all:
+    try:
+        playlist.download_all(args.id, args.all, base_dir=dir, override=args.override)
+    except urllib2.HTTPError, err:
+        if err.code == 404:
+            print 'Error: User not found. Make sure it is public or use its share URL'
             exit(1)
         else:
             raise
