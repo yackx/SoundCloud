@@ -16,33 +16,33 @@ You also need a *CLIENT ID* from SoundCloud.
 It is as simple as [registering your "app"](https://developers.soundcloud.com/).
 
 
-## Download a song
+## Download a track
 
     youri:SoundCloud $ python download.py -h
-    usage: download.py [-h] [--song SONG] [--playlist PLAYLIST] --id ID
+    usage: download.py [-h] [--track TRACK] [--playlist PLAYLIST] --id ID
                        [--override]
 
     Download a SoundCloud sound or a complete playlist
 
     optional arguments:
       -h, --help            show this help message and exit
-      --song SONG, -s SONG  Download a single song
+      --track TRACK, -s TRACK  Download a single track
       --playlist PLAYLIST, -p PLAYLIST
-                            Download all songs from a public playlist
+                            Download all tracks from a public playlist
       --id ID, -i ID        Client ID
       --override, -d        Override file if it exists. Defaults to false
 
-To download a song, copy the song page URL from your browser:
+To download a track, copy the track page URL from your browser:
 
-    youri:SoundCloud $ python download.py --id my_id --song https://soundcloud.com/dj-crontab/indiscriminate-killers
+    youri:SoundCloud $ python download.py --id my_id --track https://soundcloud.com/dj-crontab/indiscriminate-killers
     Found: 'Indiscriminate Killers'
 
-The song will be downloaded to a `mp3` folder under the current directory.
+The track will be downloaded to a `mp3` folder under the current directory.
 
 
 ## Download a playlist
 
-To download all songs from a playlist, make sure the playlist URL is accessible without password:
+To download all tracks from a playlist, make sure the playlist URL is accessible without password:
 
 * Either by making the playlist public or
 * By using its "sharing URL". To do so, go to the playlist and click on the "Share" button. Copy the "Private Share" URL that appears.
@@ -61,7 +61,7 @@ Example:
 
 Notice that, for some reason, some titles cannot be downloaded, probably due to restriction set by the author or poster.
 
-The song will be downloaded to a folder named `mp3/playlist_title` under the current directory.
+The track will be downloaded to a folder named `mp3/playlist_title` under the current directory.
 
 
 ## Unit tests
