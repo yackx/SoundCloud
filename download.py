@@ -29,37 +29,24 @@ args = parser.parse_args()
 
 dir = 'mp3'
 
-if args.track:
-    try:
+error_msg = None
+try:
+    if args.track:
+        error_msg = 'Error: track not found'
         track.download_from_url(args.id, args.track, dir=dir, override=args.override)
-    except requests.exceptions.HTTPError, err:
-        if err.response.status_code == 404:
-            print 'Error: track not found'
-            exit(1)
-        else:
-            raise
-
-elif args.playlist:
-    try:
+    elif args.playlist:
+        error_msg = 'Error: Playlist not found. Make sure it is public or use its share URL'
         playlist.download_from_url(args.id, args.playlist, base_dir=dir, override=args.override)
-    except urllib2.HTTPError, err:
-        if err.code == 404:
-            print 'Error: Playlist not found. Make sure it is public or use its share URL'
-            exit(1)
-        else:
-            raise
-
-elif args.all:
-    try:
+    elif args.all:
+        error_msg = 'Error: User not found'
         playlist.download_all(args.id, args.all, base_dir=dir, override=args.override)
-    except urllib2.HTTPError, err:
-        if err.code == 404:
-            print 'Error: User not found'
-            exit(1)
-        else:
-            raise
-
-else:
-    parser.print_help()
-    print '\nError: you must specify either a track or a public (or shared) playlist'
-    exit(1)
+    else:
+        parser.print_help()
+        print '\nError: you must specify either a track or a public (or shared) playlist'
+        exit(1)
+except urllib2.HTTPError, err:
+    if err.code == 404:
+        print error_msg
+        exit(1)
+    else:
+        raise
