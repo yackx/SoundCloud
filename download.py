@@ -54,7 +54,7 @@ elif args.all:
         playlist.download_all(args.id, args.all, base_dir=dir, override=args.override)
     except urllib2.HTTPError, err:
         if err.code == 404:
-            print 'Error: User not found. Make sure it is public or use its share URL'
+            print 'Error: User not found'
             exit(1)
         else:
             raise
