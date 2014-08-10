@@ -71,6 +71,15 @@ Notice that, for some reason, some titles cannot be downloaded, probably due to 
 The track will be downloaded to a folder named `mp3/playlist_title` under the current directory.
 
 
+## Download all playlists
+
+To download all tracks from all playlists of a user:
+
+    youri:SoundCloud $ python download.py --id my_id --all http://soundcloud.com/some-user
+
+The playlists must be public.
+
+
 ## Unit tests
 
 Close to zero at the time. Use `py.test`:
