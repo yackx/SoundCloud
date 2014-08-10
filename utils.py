@@ -2,6 +2,7 @@
 
 import re, os.path
 
+
 def create_dir(dir):
     """Create directory if it does not exist"""
     if not os.path.exists(dir):
