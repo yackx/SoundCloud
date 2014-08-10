@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import requests, os.path, soundcloud
+from collections import Counter
 import utils, track
 
 
@@ -33,9 +34,10 @@ def download_from_url(client_id, url, base_dir, override=False):
             else:
                 raise
 
-    # Stats
     print "Playlist downloaded to %s" % playlist_title
-    print "Downloaded: %d, Skipped: %d, Errors: %d" % (downloaded, skipped, errors)
+    return Counter({
+        'downloaded': downloaded, 'skipped': skipped, 'errors': errors
+    })
 
 
 def download_all(client_id, user_url, base_dir, override=False):
@@ -43,6 +45,11 @@ def download_all(client_id, user_url, base_dir, override=False):
     client = soundcloud.Client(client_id=client_id)
     user = client.get('/resolve', url=user_url)
     playlists = client.get('/users/%d/playlists' % user.id)
+    stats = Counter()
+
     for playlist in playlists:
         print 'Playlist: "%s"' % playlist.title
-        download_from_url(client_id, playlist.permalink_url, base_dir, override)
+        playlist_stats = download_from_url(client_id, playlist.permalink_url, base_dir, override)
+        stats = stats + playlist_stats
+
+    return stats
