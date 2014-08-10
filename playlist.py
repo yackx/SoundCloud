@@ -34,7 +34,7 @@ def download_from_url(client_id, url, base_dir, override=False):
             else:
                 raise
 
-    print "Playlist downloaded to %s" % playlist_title
+    print 'Playlist downloaded to "%s"' % playlist_title
     return Counter({
         'downloaded': downloaded, 'skipped': skipped, 'errors': errors
     })
