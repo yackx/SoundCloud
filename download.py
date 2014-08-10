@@ -29,7 +29,7 @@ args = parser.parse_args()
 
 dir = 'mp3'
 
-if args.track != None:
+if args.track:
     try:
         track.download_from_url(args.id, args.track, dir=dir, override=args.override)
     except requests.exceptions.HTTPError, err:
@@ -39,7 +39,7 @@ if args.track != None:
         else:
             raise
 
-elif args.playlist != None:
+elif args.playlist:
     try:
         playlist.download_from_url(args.id, args.playlist, base_dir=dir, override=args.override)
     except urllib2.HTTPError, err:
