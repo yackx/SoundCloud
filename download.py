@@ -42,7 +42,7 @@ try:
         playlist.download_all(args.id, args.all, base_dir=dir, override=args.override)
     else:
         parser.print_help()
-        print '\nError: you must specify either a track or a public (or shared) playlist'
+        print '\nError: you must specify either a track, a public (or shared) playlist or a user'
         exit(1)
 except urllib2.HTTPError, err:
     if err.code == 404:
