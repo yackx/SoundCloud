@@ -6,7 +6,9 @@ A simple Python script to download music from SoundCloud, using either their API
 
 ## Install
 
-1. Clone this repository:
+1. Download the code
+
+Clone this repository:
 
     git clone https://github.com/YouriAckx/SoundCloud.git
 
