@@ -6,14 +6,19 @@ A simple Python script to download music from SoundCloud, using either their API
 
 ## Install
 
-You need Python 2.7.5 or above and the following libraries:
+1. Clone this repository:
 
-* [SoundCloud client](https://github.com/soundcloud/soundcloud-python): `pip install soundcloud`
+    git clone https://github.com/YouriAckx/SoundCloud.git
 
-Refer to their documentation for alternate installation methods (`easy_install`, `apt-get`, ...).
+2. Install libraries
 
-You also need a *CLIENT ID* from SoundCloud.
-It is as simple as [registering your "app"](https://developers.soundcloud.com/).
+You need Python 2.7.5 or above and the following library:
+
+* [SoundCloud client](https://github.com/soundcloud/soundcloud-python): `pip install soundcloud`. Refer to their documentation for alternate installation methods (`easy_install`, `apt-get`, ...).
+
+3. Get your client id
+
+You also need a *CLIENT ID* from SoundCloud. It is as simple as [registering your "app"](https://developers.soundcloud.com/).
 
 
 ## Download a track
