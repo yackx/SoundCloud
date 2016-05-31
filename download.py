@@ -1,22 +1,20 @@
 # -*- coding: utf-8 -*-
 
 """
-Download tracks from SoundCloud using their API.
+Download tracks from SoundCloud.
 
-See https://developers.soundcloud.com/.
+See https://developers.soundcloud.com/ for more info on the API.
 
 You need to register your "app" to get your CLIENT_ID.
 No password needed.
 
 Install this friendly soundcloud wrapper:
 https://github.com/soundcloud/soundcloud-python
-
 pip install soundcloud
 """
 
 import argparse, requests, urllib2
 import track, playlist
-
 
 
 def print_download_stats(stats):
@@ -25,7 +23,7 @@ def print_download_stats(stats):
 
 
 parser = argparse.ArgumentParser(description='Download a SoundCloud tracks and playlists')
-parser.add_argument('--track', '-t', help="Track URL")
+parser.add_argument('--track', '-t', help="Track full URL")
 parser.add_argument('--playlist', '-p', help="Public or shared playlist URL")
 parser.add_argument('--all', '-a', help="User URL. Download all tracks for all public playlists")
 parser.add_argument('--id', help='Client ID', required=True)
