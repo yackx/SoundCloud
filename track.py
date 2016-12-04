@@ -31,10 +31,13 @@ def download(client, track, dir, override=False):
     if not override and os.path.exists(file_name):
         print "File already exists, skipped"
         return False
-
-    stream_url = client.get(track.stream_url, allow_redirects=False)
-    urllib.urlretrieve(stream_url.location, file_name)
-    return True
+    
+    try:
+        stream_url = client.get(track.stream_url, allow_redirects=False)
+        urllib.urlretrieve(stream_url.location, file_name)
+        return True
+    except:
+        return False
 
 
 def fix_title(title, user_name):
