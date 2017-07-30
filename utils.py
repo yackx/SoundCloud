@@ -15,8 +15,9 @@ def build_file_name(dir, title):
     title = title.replace(">", "]")
     title = title.replace(":", ";")
     title = title.replace("\"", "'")
-    title = title.replace("/", "|")
-    title = title.replace("\\", "|")
+    title = title.replace("/", " ")
+    title = title.replace("\\", " ")
+    title = title.replace("|", " ")
     title = title.replace("?", " ")
     title = title.replace("*", " ")
 
