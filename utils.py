@@ -11,5 +11,15 @@ def create_dir(dir):
 
 def build_file_name(dir, title):
     """Build the file name"""
+    title = title.replace("<", "[")
+    title = title.replace(">", "]")
+    title = title.replace(":", ";")
+    title = title.replace("\"", "'")
+    title = title.replace("/", " ")
+    title = title.replace("\\", " ")
+    title = title.replace("|", " ")
+    title = title.replace("?", " ")
+    title = title.replace("*", " ")
+
     file_name = re.sub('/', '', title) + ".mp3"
     return os.path.join(dir, file_name)
