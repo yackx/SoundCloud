@@ -25,7 +25,7 @@ You also need a *CLIENT ID* from SoundCloud. It is as simple as [registering you
 
 ## Download a track
 
-    youri:SoundCloud $ python download.py -h
+    $ python download.py -h
     usage: download.py [-h] [--track TRACK] [--playlist PLAYLIST] --id ID
                        [--override]
 
@@ -41,7 +41,7 @@ You also need a *CLIENT ID* from SoundCloud. It is as simple as [registering you
 
 To download a track, copy the track page URL from your browser:
 
-    youri:SoundCloud $ python download.py --id my_id --track https://soundcloud.com/dj-crontab/indiscriminate-killers
+    $ python download.py --id my_id --track https://soundcloud.com/dj-crontab/indiscriminate-killers
     Found: 'Indiscriminate Killers'
 
 The track will be downloaded to a `mp3` folder under the current directory.
@@ -55,7 +55,7 @@ To download all tracks from a playlist, make sure the playlist URL is accessible
 
 Example:
 
-    youri:SoundCloud $ python download.py --id my_id --playlist https://soundcloud.com/its-me/sets/my-list/sharecode
+    $ python download.py --id my_id --playlist https://soundcloud.com/its-me/sets/my-list/sharecode
     Found: 'Execute Every Minute'
     File already exists, skipped
     Found: 'Indiscriminate Killers'
@@ -73,7 +73,7 @@ The track will be downloaded to a folder named `mp3/playlist_title` under the cu
 
 To download all tracks from all playlists of a user:
 
-    youri:SoundCloud $ python download.py --id my_id --all http://soundcloud.com/some-user
+    $ python download.py --id my_id --all http://soundcloud.com/some-user
 
 The playlists must be public.
 
@@ -81,6 +81,6 @@ The playlists must be public.
 
 Close to zero at the time. Use `py.test`:
 
-    youri:SoundCloud $ py.test -q tests
+    $ py.test -q tests
     .
     1 passed in 0.08 seconds
