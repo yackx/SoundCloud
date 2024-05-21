@@ -23,7 +23,6 @@ You need Python 2.7.5 or above and the following library:
 
 You also need a *CLIENT ID* from SoundCloud. It is as simple as [registering your "app"](https://developers.soundcloud.com/).
 
-
 ## Download a track
 
     youri:SoundCloud $ python download.py -h
@@ -46,7 +45,6 @@ To download a track, copy the track page URL from your browser:
     Found: 'Indiscriminate Killers'
 
 The track will be downloaded to a `mp3` folder under the current directory.
-
 
 ## Download a playlist
 
@@ -71,7 +69,6 @@ Notice that, for some reason, some titles cannot be downloaded, probably due to 
 
 The track will be downloaded to a folder named `mp3/playlist_title` under the current directory.
 
-
 ## Download all playlists
 
 To download all tracks from all playlists of a user:
@@ -79,7 +76,6 @@ To download all tracks from all playlists of a user:
     youri:SoundCloud $ python download.py --id my_id --all http://soundcloud.com/some-user
 
 The playlists must be public.
-
 
 ## Unit tests
 
